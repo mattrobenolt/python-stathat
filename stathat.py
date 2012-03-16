@@ -181,7 +181,7 @@ def classic_count(user_key, stat_key, count=1, async=True):
     return stats.count(count, async=async)
 
 def classic_value(user_key, stat_key, value, async=True):
-    """Convenience function for sending one off "count" calls to the Classic api.
+    """Convenience function for sending one off "value" calls to the Classic api.
 
     :param user_key: Private key identifying the user.
     :param stat_key: Private key identifying the stat.
