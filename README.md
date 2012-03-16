@@ -39,6 +39,18 @@ except StatHatError, e:
     print "Broke!", e
 ```
 
+## Shortcuts
+These methods are provided as a shortcut for one-off calls. Errors are raised and handled the same way as the normal calls.
+
+```python
+import stathat
+stathat.ez_count('matt@ydekproductions.com', 'awesome stuff', 5)
+stathat.ez_value('matt@ydekproductions.com', 'awesome stuff', 0.275)
+stathat.classic_count('{{ my user key }}', '{{ my stat key }}', 5)
+stathat.classic_value('{{ my user key }}', '{{ my stat key }}', 0.275)
+stathat.ez_count('matt@ydekproductions.com', 'awesome stuff', 5, async=False)  # Disable async
+```
+
 ## (optional) Async support
 First, [gevent](http://www.gevent.org/) is required to use any async features. Async features are automatically disabled gracefully if [gevent](http://www.gevent.org/) is not available.
 
@@ -65,6 +77,9 @@ $ pip install gevent
 ```
 Installing [gevent](http://www.gevent.org/) allows much faster logging in a "send-and-forget" fashion.
 __Note:__ libevent headers are required for installation.
+
+## Gotchas
+ * [StatHat](http://www.sitehat.com) does not return an error when your `site_key` is incorrect. They will only return an error when the `user_key` is wrong.
 
 ## Todo
  * Support for a thread pool to allow async when gevent isn't available.

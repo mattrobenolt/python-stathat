@@ -32,8 +32,10 @@ try:
 except ImportError:
     HAS_GEVENT = False
 
-__all__ = ('StatHat', 'StatHatEZ', 'StatHatError')
+__all__ = ('StatHat', 'StatHatEZ', 'StatHatError',
+    'ez_count', 'ez_value', 'classic_count', 'classic_value')
 
+# We like security. :)
 STATHAT_ENDPOINT = 'https://api.stathat.com'
 
 
@@ -62,14 +64,14 @@ class _StatHatBase(object):
     def count(self, count=1, async=True):
         """Request to track a counter. Returns True on success or raises a :class:`StatHatError`.
 
-        :param count: Optional argument, Number you want to count.
+        :param count: Optional argument, Number you want to count, default=1.
         :param async: Optional argument to override the async behavior if gevent is available.
         """
 
         return self._send(self.COUNT_PATH, {'count': count}, async=async)
 
     def value(self, value, async=True):
-        """Request to track a specific value. Returns :class:`Response` object.
+        """Request to track a specific value. Returns True on success or raises a :class:`StatHatError`.
 
         :param value: Value you want to track.
         :param async: Optional argument to override the async behavior if gevent is available.
@@ -140,3 +142,52 @@ class StatHatEZ(_StatHatBase):
         """
 
         super(StatHatEZ, self).__init__(ezkey=ezkey, stat=stat_name)
+
+
+def ez_count(ezkey, stat_name, count=1, async=True):
+    """Convenience function for sending one off "count" calls to the EZ api.
+
+    :param ezkey: Your account "EZ key" or email address.
+    :param stat_name: The ad-hoc stat name to use.
+    :param count: Optional argument, Number you want to count, default=1.
+    :param async: Optional argument to override the async behavior if gevent is available.
+    """
+
+    stats = StatHatEZ(ezkey, stat_name)
+    return stats.count(count, async=async)
+
+def ez_value(ezkey, stat_name, value, async=True):
+    """Convenience function for sending one off "value" calls to the EZ api.
+
+    :param ezkey: Your account "EZ key" or email address.
+    :param stat_name: The ad-hoc stat name to use.
+    :param value: Value you want to track.
+    :param async: Optional argument to override the async behavior if gevent is available.
+    """
+
+    stats = StatHatEZ(ezkey, stat_name)
+    return stats.value(value, async=async)
+
+def classic_count(user_key, stat_key, count=1, async=True):
+    """Convenience function for sending one off "count" calls to the Classic api.
+
+    :param user_key: Private key identifying the user.
+    :param stat_key: Private key identifying the stat.
+    :param count: Optional argument, Number you want to count, default=1.
+    :param async: Optional argument to override the async behavior if gevent is available.
+    """
+
+    stats = StatHat(user_key, stat_key)
+    return stats.count(count, async=async)
+
+def classic_value(user_key, stat_key, value, async=True):
+    """Convenience function for sending one off "count" calls to the Classic api.
+
+    :param user_key: Private key identifying the user.
+    :param stat_key: Private key identifying the stat.
+    :param value: Value you want to track.
+    :param async: Optional argument to override the async behavior if gevent is available.
+    """
+
+    stats = StatHat(user_key, stat_key)
+    return stats.value(value, async=async)
