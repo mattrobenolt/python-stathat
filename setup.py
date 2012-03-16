@@ -10,7 +10,7 @@ with progressive support for asyncronous requests via gevent.
 from setuptools import setup
 
 setup(
-    name='stathat',
+    name='python-stathat',
     version='0.1.0-dev',
     author='Matt Robenolt',
     author_email='matt@ydekproductions.com',

@@ -3,10 +3,8 @@ Implements the [StatHat](http://www.stathat.com) [EZ and Classic API](http://www
 
 ## Installation
 ```
-$ python setup.py install
+$ pip install python-stathat
 ```
-
-_Coming soon to pip_
 
 ## EZ API usage
 ```python
