@@ -65,3 +65,6 @@ $ pip install gevent
 ```
 Installing [gevent](http://www.gevent.org/) allows much faster logging in a "send-and-forget" fashion.
 __Note:__ libevent headers are required for installation.
+
+## Todo
+ * Support for a thread pool to allow async when gevent isn't available.
