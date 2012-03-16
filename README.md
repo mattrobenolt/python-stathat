@@ -2,6 +2,10 @@
 Implements the [StatHat](http://www.stathat.com) [EZ and Classic API](http://www.stathat.com/docs/api), and supports (and encourages) asyncronous usage with [gevent](http://www.gevent.org/).
 
 ## Installation
+```
+$ python setup.py install
+```
+
 _Coming soon to pip_
 
 ## EZ API usage
