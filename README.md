@@ -83,3 +83,4 @@ __Note:__ libevent headers are required for installation.
 
 ## Todo
  * Support for a thread pool to allow async when gevent isn't available.
+ * Drop-in support for Django
