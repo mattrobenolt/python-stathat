@@ -4,7 +4,7 @@ StatHat
 ======
 
 A Python library for `StatHat <http://www.stathat.com/>`_ that implements the EZ API and Classic API
-with progressive support for asyncronous requests via gevent.
+with progressive support for asynchronous requests via gevent.
 """
 
 from setuptools import setup
