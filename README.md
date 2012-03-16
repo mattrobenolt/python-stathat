@@ -46,6 +46,15 @@ Async requests will always return True no matter what the actual response is. Th
 
 It's recommended to first make a test with `async=False` to make sure parameters are correct and your keys are working before going full-blown async mode.
 
+### Checking for async
+```python
+from stathat import StatHat
+if StatHat.has_async():
+    print "Yes!"
+else:
+    print "Nope. :("
+````
+
 ### Installing gevent
 ```
 $ pip install gevent
