@@ -45,6 +45,12 @@ class _StatHatBase(object):
     VALUE_PATH = '/v'
     COUNT_PATH = '/c'
 
+    @staticmethod
+    def has_async():
+        """Check if async support is available. Returns True if gevent is installed."""
+
+        return HAS_GEVENT
+
     def __init__(self, **kwargs):
         self._auth = kwargs
 
