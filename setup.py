@@ -11,7 +11,7 @@ from setuptools import setup
 
 setup(
     name='python-stathat',
-    version='0.2.0-dev',
+    version='0.2.0',
     author='Matt Robenolt',
     author_email='matt@ydekproductions.com',
     url='https://github.com/mattrobenolt/python-stathat',
