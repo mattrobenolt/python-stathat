@@ -34,7 +34,7 @@ Error handling is only relevant in non-async mode. No exceptions will be raised 
 from stathat import StatHatEZ, StatHatError
 stats = StatHatEZ('matt@ydekproductions.com', 'awesome stuff')
 try:
-    stats.tick()
+    stats.tick(async=False)
 except StatHatError, e:
     print "Broke!", e
 ```
