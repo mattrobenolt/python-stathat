@@ -1,5 +1,5 @@
 # A better Python library for [StatHat](http://www.stathat.com)
-Implements the [StatHat](http://www.stathat.com) [EZ and Classic API](http://www.stathat.com/docs/api), and supports (and encourages) asyncronous usage with gevent.
+Implements the [StatHat](http://www.stathat.com) [EZ and Classic API](http://www.stathat.com/docs/api), and supports (and encourages) asyncronous usage with [gevent](http://www.gevent.org/).
 
 ## Installation
 _Coming soon to pip_
@@ -13,7 +13,7 @@ stats.count(5)  # Increment a counter by 5
 stats.value(0.275)  # Track specific values, such as loadavg or uptime, etc.
 print stats.count(5, async=False)  # Force async off
 ```
-Async features are detected automatically based on if `gevent` is available or not. Async can be disabled by passing `async=False` to any method.
+Async features are detected automatically based on if [gevent](http://www.gevent.org/) is available or not. Async can be disabled by passing `async=False` to any method.
 
 ## Classic API usage
 ```python
@@ -38,7 +38,7 @@ except StatHatError, e:
 ```
 
 ## (optional) Async support
-First, gevent is required to use any async features. Async features are automatically disabled gracefully if gevent is not available.
+First, [gevent](http://www.gevent.org/) is required to use any async features. Async features are automatically disabled gracefully if [gevent](http://www.gevent.org/) is not available.
 
 Async mode allows a ton of requests to be made without slowing down the main application thread.
 
@@ -57,9 +57,9 @@ else:
     print "Nope. :("
 ````
 
-### Installing gevent
+### Installing [gevent](http://www.gevent.org/)
 ```
 $ pip install gevent
 ```
-Installing gevent allows much faster logging in a "send-and-forget" fashion.
+Installing [gevent](http://www.gevent.org/) allows much faster logging in a "send-and-forget" fashion.
 __Note:__ libevent headers are required for installation.
