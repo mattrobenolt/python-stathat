@@ -1,4 +1,6 @@
-# A better Python library for StatHat that supports making async requests with gevent
+# A better Python library for [StatHat](http://www.stathat.com)
+Implements the [StatHat](http://www.stathat.com) [EZ and Classic API](http://www.stathat.com/docs/api), and supports (and encourages) asyncronous usage with gevent.
+
 ## Installation
 _Coming soon to pip_
 
